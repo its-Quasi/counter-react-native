@@ -1,8 +1,7 @@
 import { useState } from "react"
 import { Pressable, StyleSheet, Text, View } from "react-native"
-import { Button } from "react-native-paper"
+import { AnimatedFAB, Button } from "react-native-paper"
 import { SafeAreaView } from "react-native-safe-area-context"
-
 export const CounterScreen = () => {
   const [counter, setCounter] = useState(0)
 
@@ -11,20 +10,14 @@ export const CounterScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>{counter}</Text>
-
-      <Button mode="contained"
+      <AnimatedFAB
+        style={stylesFAB.fabStyle}
+        label=''
+        icon={'plus'}
+        animateFrom={'right'}
+        iconMode={'static'} extended={false}
         onPress={onIncrement}
-        onLongPress={() => setCounter(0)}
-      >
-        Increment
-      </Button>
-      {/* <Pressable
-        style={styles.button}
-        onPress={onIncrement}
-        onLongPress={() => setCounter(0)}
-      >
-        <Text style={styles.buttonText}> Increment</Text>
-      </Pressable> */}
+        onLongPress={() => setCounter(0)} />
     </SafeAreaView>
   )
 }
@@ -50,3 +43,15 @@ const styles = StyleSheet.create({
     color: 'white'
   }
 })
+
+
+const stylesFAB = StyleSheet.create({
+  container: {
+    flexGrow: 1,
+  },
+  fabStyle: {
+    bottom: 16,
+    right: 16,
+    position: 'absolute',
+  },
+});
