@@ -1,7 +1,8 @@
 import { useState } from "react"
 import { Pressable, StyleSheet, Text, View } from "react-native"
-import { AnimatedFAB, Button } from "react-native-paper"
+import { AnimatedFAB, Button, FAB } from "react-native-paper"
 import { SafeAreaView } from "react-native-safe-area-context"
+
 export const CounterScreen = () => {
   const [counter, setCounter] = useState(0)
 
@@ -10,12 +11,10 @@ export const CounterScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>{counter}</Text>
-      <AnimatedFAB
+      <FAB
         style={stylesFAB.fabStyle}
         label=''
-        icon={'plus'}
-        animateFrom={'right'}
-        iconMode={'static'} extended={false}
+        icon={'add-outline'}
         onPress={onIncrement}
         onLongPress={() => setCounter(0)} />
     </SafeAreaView>
