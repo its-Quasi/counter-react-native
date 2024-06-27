@@ -1,5 +1,6 @@
 import { useState } from "react"
-import { Button, Pressable, StyleSheet, Text, View } from "react-native"
+import { Pressable, StyleSheet, Text, View } from "react-native"
+import { Button } from "react-native-paper"
 import { SafeAreaView } from "react-native-safe-area-context"
 
 export const CounterScreen = () => {
@@ -10,13 +11,20 @@ export const CounterScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>{counter}</Text>
-      <Pressable
+
+      <Button mode="contained"
+        onPress={onIncrement}
+        onLongPress={() => setCounter(0)}
+      >
+        Increment
+      </Button>
+      {/* <Pressable
         style={styles.button}
         onPress={onIncrement}
         onLongPress={() => setCounter(0)}
       >
         <Text style={styles.buttonText}> Increment</Text>
-      </Pressable>
+      </Pressable> */}
     </SafeAreaView>
   )
 }
